@@ -1,0 +1,13 @@
+<div>
+  <form [formGroup]="studentForm">
+
+    <label for="prenom">Prenom:</label>
+    <input type="text" id="prenom" formControlName = "prenom" name="prenom" placeholder="Votre prenom" required>
+
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" formControlName = "nom" name="nom" placeholder="Votre nom" required>
+
+    <input type="submit" (click) = "addstudent()" value="Ajouter">
+</form>
+
+</div>

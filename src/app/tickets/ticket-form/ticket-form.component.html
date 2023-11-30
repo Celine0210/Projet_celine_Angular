@@ -1,0 +1,62 @@
+<h3>Create a new ticket</h3>
+<form class="ticket-form" [formGroup]="ticketForm">
+  <label for="title">
+    Title <br>
+    <input class="input-custom" type="text" id="title" [formControlName]="'title'">
+  </label>
+  <br>
+  <label for="description">
+    Description <br>
+    <input class="input-custom" type="text" id="description" [formControlName]="'description'">
+  </label>
+  <br>
+
+  <!-- <label for="major">
+  Major <br>
+  <select class="input-custom" type="text" id="description" [formControlName]="'Major'" ></select>
+</label>
+<br> -->
+<label for="studentID">
+  studentID<br>
+  <select class="input-custom" type="text" id="studentID" [formControlName]="'studentID'">
+  <option *ngFor="let currentstudentID of STUDENT_LIST" [value]="currentstudentID.id"> 
+    {{currentstudentID.id}} - {{currentstudentID.nom}} {{currentstudentID.prenom}}
+  </option>
+</select>
+</label>
+<br> 
+
+<label for="major">
+  Major 
+  <select class="input-custom" name="major" id="major-select" [formControlName]="'major'">
+    <option *ngFor="let currentMajor of FILIERE_LIST" [value]="currentMajor">
+      {{currentMajor}}
+    </option>
+  </select>
+</label>
+
+<button type="submit" class="btn-custom" (click)="addTicket()">Create</button>
+
+
+
+
+
+  <!-- major <br>
+  <input class="input-custom" type="text" id="major" [formControlName]="'major'">
+</label> -->
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+<!-- Uncomment below to see your form structure and how it changes-->
+<br>{{ticketForm.getRawValue() | json}}<br>

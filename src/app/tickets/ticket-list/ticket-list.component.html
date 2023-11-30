@@ -1,0 +1,25 @@
+<!-- <div class="ticket-list">
+  <div class="ticket" *ngFor="let ticket of ticketList">
+      <app-ticket [ticket]="ticket" 
+      (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
+      (deleteTicket)="deleteTicket($event)"
+      ></app-ticket> -->
+
+      
+      <!-- <app-ticket [ticket]="ticket" (ticketHasBeenDeleted)="deleted($event)"></app-ticket> -->
+      <div class="ticket-list">
+        <button class="btn-custom" (click)="displayTicketArchived = !displayTicketArchived">
+          {{displayTicketArchived ? 'les tickets' : 'ticket archiver'}} 
+          
+        </button>
+        <div class="ticket" *ngFor="let ticket of ticketList">
+           <span *ngIf="ticket.archived || !displayTicketArchived"> 
+
+            <app-ticket [ticket]="ticket" (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
+               (ticketHasBeenArchived)="archivedTicket($event)"></app-ticket>  
+                 <!-- <app-ticket [ticket]="ticket" (ticketHasBeenSelected)="ticketHasBeenSelected($event)"
+               (ticketHasBeenDeleted)="deleteTicket($event)"></app-ticket>   -->
+          </span>
+        </div>
+      </div>
+
